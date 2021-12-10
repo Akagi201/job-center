@@ -3,6 +3,26 @@ name = "scheduler"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "scheduler-client"
+path = "src/client.rs"
+
+[[bin]]
+name = "scheduler-server"
+path = "src/server.rs"
 
 [dependencies]
+clap = {version = "3.0.0-rc.0", features = ["derive", "env"]}
+uuid = { version = "0.8.2", features = ["v4"]}
+log = "0.4.14"
+env_logger = "0.9.0"
+tonic = "0.6.2"
+prost = "0.9.0"
+tokio = { version = "1.14.0", features = ["full"] }
+futures = "0.3.17"
+hostname = {version = "0.3.1", features = ["set"] }
+wait-timeout = "0.2.0"
+humantime = "2.1.0"
+
+[build-dependencies]
+tonic-build = "0.6.2"
